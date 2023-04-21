@@ -4,7 +4,30 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Color Scheme Generator</title>
   </head>
-  <body></body>
+  <body>
+    <header>
+      <input type="color" name="color-selector" id="color-selector" />
+      <select names="modes" id="modes">
+        <option value="monochrome">Monochrome</option>
+        <option value="monochrome-dark">Monochrome Dark</option>
+        <option value="monochrome-light">Monochrome Light</option>
+        <option value="analogic">Analogic</option>
+        <option value="complement">Complement</option>
+        <option value="analogic-complement">Analogic Complement</option>
+        <option value="triad">Qriad</option>
+        <option value="quad">Quad</option>
+      </select>
+      <button id="get-color-btn">Get color scheme</button>
+    </header>
+    <main>
+      <div class="color" style="color: rebeccapurple"></div>
+      <div class="color" style="color: rebeccapurple"></div>
+      <div class="color" style="color: rebeccapurple"></div>
+      <div class="color" style="color: rebeccapurple"></div>
+      <div class="color" style="color: rebeccapurple"></div>
+    </main>
+  </body>
 </html>
