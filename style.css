@@ -1,3 +1,7 @@
+body {
+    font-family: "Inter", sans-serif;
+}
+
 *, *::before, *::after {
     box-sizing: border-box;
 }
@@ -35,12 +39,12 @@ button {
 
 main {
     display: flex;
+    height: 100vh;
 }
 
 .color {
-    height: 100vh;
-    z-index: -99;
     width: 20%;
+    z-index: -99;
     cursor: pointer;
     position: relative;
 }
@@ -56,13 +60,3 @@ main {
     align-items: center;
     background-color: white;
 }
-/* 
-footer {
-    width: 100%;
-    display: flex;
-    position: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: white;
-} */
