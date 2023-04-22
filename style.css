@@ -39,13 +39,30 @@ main {
 
 .color {
     height: 100vh;
+    z-index: -99;
     width: 20%;
     cursor: pointer;
+    position: relative;
 }
 
+
+.color-hex {
+    position: absolute;
+    bottom: 0;
+    height: 5%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+/* 
 footer {
     width: 100%;
     display: flex;
     position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: white;
-}
+} */

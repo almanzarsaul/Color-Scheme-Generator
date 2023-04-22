@@ -22,6 +22,7 @@ fetch(
   .then((data) => {
     data.colors.forEach((color, index) => {
       colorsEl[index].style.backgroundColor = color.hex.value;
+      colorsEl[index].childNodes[0].innerHTML = `<div>${color.hex.value}</div>`;
     });
   });
 
@@ -34,6 +35,7 @@ getColorBtn.addEventListener("click", function () {
     selectedColor !== lastSelectedColor ||
     selectedMode !== lastSelectedMode
   ) {
+    // set last selected to newest selected to protect against spamming API with same query
     lastSelectedColor = selectedColor;
     lastSelectedMode = selectedMode;
     fetch(
@@ -43,6 +45,9 @@ getColorBtn.addEventListener("click", function () {
       .then((data) => {
         data.colors.forEach((color, index) => {
           colorsEl[index].style.backgroundColor = color.hex.value;
+          colorsEl[
+            index
+          ].childNodes[0].innerHTML = `<div>${color.hex.value}</div>`;
         });
       });
   }
