@@ -10,11 +10,11 @@ let lastSelectedColor = (Math.random() * 0xfffff * 1000000)
   .toString(16)
   .slice(0, 6);
 
-// selects random mode
+// Selects random mode
 selectedModeEl.value = lastSelectedMode;
 selectedColorEl.value = "#" + lastSelectedColor;
 
-// get color scheme
+// Get color scheme
 fetch(
   `https://www.thecolorapi.com/scheme?hex=${lastSelectedColor}&mode=${lastSelectedMode}&count=5`
 )
@@ -26,20 +26,28 @@ fetch(
     });
   });
 
-document.addEventListener("click", (e) =>
-  console.log(e.target.style.backgroundColor)
-);
+// Copy color to clipboard when clicked on.
+document.addEventListener("click", (e) => {
+  if (e.target.classList.contains("color")) {
+    const colorHex = e.target.childNodes[0].textContent; // Gets color hex from the text inside of the color-hex div.
+    // Copy the text inside the text field
+    navigator.clipboard.writeText(colorHex);
+
+    // Alert the copied text
+    alert("Copied the text: " + colorHex);
+  }
+});
 
 getColorBtn.addEventListener("click", function () {
   const selectedColor = selectedColorEl.value.substring(1); // Removes hashtag from front of color.
   const selectedMode = selectedModeEl.value;
 
-  // prevents spamming API with same query
+  // Prevents spamming API with same query.
   if (
     selectedColor !== lastSelectedColor ||
     selectedMode !== lastSelectedMode
   ) {
-    // set last selected to newest selected to protect against spamming API with same query
+    // Set last selected to newest selected to protect against spamming API with same query
     lastSelectedColor = selectedColor;
     lastSelectedMode = selectedMode;
     fetch(
