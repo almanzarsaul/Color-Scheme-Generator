@@ -13,7 +13,9 @@ header {
     padding: 2em 1em;
     width: 100%;
     background-color: white;
-    position: fixed;
+    position: absolute;
+    top: 0;
+    z-index: 99;
 }
 
 input[type=color] {
@@ -44,7 +46,7 @@ main {
 
 .color {
     width: 20%;
-    z-index: -99;
+    /* z-index: -99; */
     cursor: pointer;
     position: relative;
 }
