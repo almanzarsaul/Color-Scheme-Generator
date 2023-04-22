@@ -6,12 +6,12 @@ const colorsEl = document.getElementsByClassName("color");
 let lastSelectedMode =
   selectedModeEl[Math.floor(Math.random() * selectedModeEl.options.length)]
     .value;
-let lastSelectedColor = Math.floor(Math.random() * 16777215).toString(16);
+let lastSelectedColor = (Math.random() * 0xfffff * 1000000)
+  .toString(16)
+  .slice(0, 6);
 
 // selects random mode
 selectedModeEl.value = lastSelectedMode;
-
-// selects random color
 selectedColorEl.value = "#" + lastSelectedColor;
 
 // get color scheme
@@ -25,6 +25,10 @@ fetch(
       colorsEl[index].childNodes[0].innerHTML = `<div>${color.hex.value}</div>`;
     });
   });
+
+document.addEventListener("click", (e) =>
+  console.log(e.target.style.backgroundColor)
+);
 
 getColorBtn.addEventListener("click", function () {
   const selectedColor = selectedColorEl.value.substring(1); // Removes hashtag from front of color.
