@@ -3,9 +3,11 @@ const selectedColorEl = document.getElementById("color-selector");
 const selectedModeEl = document.getElementById("modes");
 const colorsEl = document.getElementsByClassName("color");
 
-// for (let index = 0; index < selectedModeEl.options.length; index++) {
-//   console.log(selectedModeEl.options[index].value);
-// }
+// selects random mode
+selectedModeEl.value =
+  selectedModeEl[
+    Math.floor(Math.random() * selectedModeEl.options.length)
+  ].value;
 
 // selects random color
 selectedColorEl.value = "#" + Math.floor(Math.random() * 16777215).toString(16);
